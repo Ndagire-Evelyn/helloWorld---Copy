@@ -1,19 +1,20 @@
 extends layout
 block content 
-  .login
-    .d-flex.align-items-center
-      .logo P
-      h5#h5.ms-2.mb-0 ParkEase
-    h1#heading WELCOME BACK TO PARKEASE
-    p#p PLEASE LOGIN
-    br
-    .mb-3
-      input#username(type='text' required='')
-      label.Form-label(for='userName') UserName
-    .mb-3
-      input#password(type='password' required='')
-      label.Form-label(for='Password') Password
-    a(href="/attendant")
-      button(type='submit') Login
-    #errorMsg.error
+  .main-content
+    .login
+      .d-flex.align-items-center
+        .logo P
+        h5#h5.ms-2.mb-0 ParkEase
+      h1#heading WELCOME BACK TO PARKEASE
+      p#p PLEASE LOGIN
+      br
+      .mb-3
+        input#username(type='email' placeholder='name@example.com' name='email' required='')
+        label.Form-label(for='Email') Email
+      .mb-3
+        input#password(type='password' placeholder='••••••••' name='password'required='')
+        label.Form-label(for='Password') Password
+      a(href="/attendant")
+        button(type='submit') Login
+      #errorMsg.error
   script(src='auth.js')
