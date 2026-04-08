@@ -4,7 +4,7 @@ const calculateParkingFee = require("../utils/feeCalculator");
 
 //import models
 const Vehicles = require("../models/Vehicle_registration")
-const Signout = require("../models/Signout")
+const Signout = require("../models/SignOut")
 
 router.get("/signout", (req, res) => {
     res.render("signout");

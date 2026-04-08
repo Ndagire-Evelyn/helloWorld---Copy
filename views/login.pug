@@ -13,6 +13,7 @@ block content
     .mb-3
       input#password(type='password' required='')
       label.Form-label(for='Password') Password
-    button.btn.btn-primary(type='submit') Login
+    a(href="/attendant")
+    button(type='submit') Login
     #errorMsg.error
   script(src='auth.js')

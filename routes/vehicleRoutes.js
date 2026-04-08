@@ -6,7 +6,7 @@ const { isAttendant} = require("../middleware/auth");
 const calculateParkingFee = require("../utils/feeCalculator");
 //Import model files
 const Vehicle = require("../models/Vehicle_registration");
-const Signout = require("../models/Signout");
+const Signout = require("../models/SignOut");
 
 //Image upload configurations
 let storage = multer.diskStorage({
