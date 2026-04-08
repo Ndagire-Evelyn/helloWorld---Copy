@@ -1,0 +1,33 @@
+extends layout
+block content 
+  .container.min-vh-100.d-flex.justify-content-center.align-items-center
+    .card.shadow-lg.border-0.rounded-4(style='width: 100%; max-width: 450px;')
+      .card-body.p-5
+        form(method='post' action='/tyreServices')
+          .mb-3
+            label.form-label.fw-semibold(for='tyreType') Tyre Type
+            select#tyreType(name="tyreType")
+                option(value="") Select a tyre size 
+                option(value="Bridgestone") Bridgestone
+                option(value="Goodyear") Goodyear
+                option(value="CEAT") CEAT
+                option(value="Continental") Continental
+          .mb-4
+            label.form-label.fw-semibold(for='tyreSize') Tyre Size
+            select#tyreSize(name="tyreSize")
+                option(value= "") Select a tyre size 
+                option(value= "15 Inch") 15 Inch
+                option(value= "16 Inch") 16 Inch
+                option(value= "17 Inch") 17 Inch
+          .mb-4      
+            label.form-label.fw-semibold(for='tyreServices') Tyre Services
+            select#tyreServices(name="tyreServices")
+                option(value= "") Select a tyre Service
+                option(value= "Pressure") Pressure
+                option(value= "Puncture-fixing") Puncture-fixing
+                option(value= "valves") Valves
+            .mb-4
+            label.form-label.fw-semibold(for='tyrePrice') Tyre Price
+            input#tyrePrice.form-control(type='text' placeholder='tyrePrice' name='tyrePrice')
+          button.btn.btn-primary.w-100.py-2.fw-bold.rounded-3(type='submit') Register Tyre 
+          

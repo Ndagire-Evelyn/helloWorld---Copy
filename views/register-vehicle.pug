@@ -1,0 +1,51 @@
+extends layout
+block content
+    .container.mt-4
+    h3.fw-bold Vehicle Registration
+    p.text-muted
+        | Complete the form below to register a new entry in the parking system.
+    form#regForm
+        .row
+        // DRIVER INFO
+        .col-md-6
+            .card.p-3.mb-3
+            h6 Driver Information
+            label Driver Name
+            input#driverName.form-control(type='text' placeholder='Enter full name')
+            small#nameError.text-danger
+            label.mt-3 Phone Number
+            .input-group
+                span.input-group-text +256
+                input#phone.form-control(type='text' placeholder='700000000')
+            small#phoneError.text-danger
+            label.mt-3 NIN Number
+            input#nin.form-control(type='text' placeholder='CFXXXXXXXXXXXX' disabled='')
+            small#ninError.text-danger
+        // VEHICLE INFO
+        .col-md-6
+            .card.p-3.mb-3
+            h6 Vehicle Information
+            label Vehicle Type
+            select#vehicleType.form-control
+                option(value='') Select
+                option Truck
+                option Personal Car
+                option Taxi
+                option Coaster
+                option Boda-boda
+            label.mt-3 Number Plate
+            input#plate.form-control(type='text' placeholder='UBA123X')
+            small#plateError.text-danger
+            label.mt-3 Vehicle Model &amp; Color
+            input#model.form-control(type='text' placeholder='Toyota, White')
+        // BUTTONS
+        .d-flex.gap-2
+        button.btn.btn-light(type='button' onclick='clearForm()')
+            | Clear Form
+        button.btn.btn-primary(type='submit')
+            | Register &amp; Print Receipt
+    // QUICK TIPS
+    .tips.card.p-3
+    h6 Quick Tips
+    p Save &amp; Print &rarr; Ctrl + S
+    p Clear Form &rarr; Alt + C

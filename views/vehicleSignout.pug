@@ -1,0 +1,30 @@
+extends layout 
+block content 
+    .dashboard
+    .form-section
+        h2 Vehicle Sign Out
+        form#signOutForm
+        label Receiver Name
+        input#receiverName(type='text')
+        label Role
+        input#dashboardRole(type='text')
+        label Receipt Number
+        input#receiptNumber(type='text')
+        label Phone Number
+        input#phoneNumber(type='text')
+        label Gender
+        select#gender
+            option Male
+            option Female
+        label NIN Number
+        input#ninNumber(type='text')
+        label Arrival Time
+        input#arrivalTime(type='datetime-local')
+        button.btn-submit(type='submit') Generate Receipt
+    .receipt-section
+        h2 Receipt
+        #receiptContent
+        p No receipt generated yet.
+        div
+        button.btn-submit PRINT
+        script(src='javaScript/signOut.js')

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register User</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="nav-set" >
+        <nav class="navbar">
+
+            <div class="logo">
+                ParkEase
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="register.html">Register Car</a></li>
+
+                <li><a href="reports.html" class="admin-link">Admin</a></li>
+                <li><a href="batterySection.html">Battery Section</a></li>
+                <li><a href="tyreClinic.html">Tyre Clinic</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="signOut.html">Check Out</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <span class="user-role">Admin</span>
+                <a href="index.html" class="logout-btn">Logout</a>
+            </div>
+
+        </nav>
+        <h1>Parkease Attendant Registration</h1>
+        <div class="dashboard">
+
+
+
+            <form id="attendantForm">
+
+                <input type="text" id="name" placeholder="Full Name">
+
+                <input type="password" id="passkey" placeholder="Passkey">
+
+                <input type="date" id="dob">
+
+                <input type="text" id="nin" placeholder="NIN Number" >
+
+                <input type="text" id="phone" placeholder="Phone Number">
+
+                <input type="text" id="station" placeholder="Parking Station">
+
+                <select id="shift">
+                    <option value="">Select Shift</option>
+                    <option>Day</option>
+                    <option>Night</option>
+                </select>
+
+                <button type="submit" class="btn-submit">Register Attendant</button>
+
+            </form>
+            <div>
+                <h2>Registered Attendants</h2>
+
+                <table id="attendantsTable">
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>NIN</th>
+                            <th>Station</th>
+                            <th>Shift</th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <script src="javaScript/registerUser.js"></script>
+</body>
+
+</html>

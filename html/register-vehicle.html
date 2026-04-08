@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Registration - ParkEase</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f4f7f6;
+        }
+        /* Smooth transition for the NIN field */
+        #ninContainer {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container min-vh-100 d-flex justify-content-center align-items-center py-5">
+    
+    <div class="card shadow-lg border-0 rounded-4" style="width: 100%; max-width: 700px;">
+        <div class="card-header bg-primary text-white text-center py-4 rounded-top-4">
+            <h3 class="mb-0"><i class="bi bi-car-front-fill me-2"></i>Vehicle Registration</h3>
+            <p class="mb-0 small text-white-50">Register vehicles on arrival [cite: 22]</p>
+        </div>
+        
+        <div class="card-body p-4 p-md-5">
+            <form id="vehicleRegistrationForm">
+                
+                <h5 class="text-primary mb-3 border-bottom pb-2">Driver Details</h5>
+                <div class="row mb-4">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <label for="driverName" class="form-label fw-semibold">Driver Name</label>
+                        <input type="text" class="form-control" id="driverName" placeholder="e.g. John Doe" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="phoneNumber" class="form-label fw-semibold">Phone Number</label>
+                        <input type="tel" class="form-control" id="phoneNumber" placeholder="07XX XXXXXX" required>
+                    </div>
+                </div>
+
+                <h5 class="text-primary mb-3 border-bottom pb-2">Vehicle Details</h5>
+                <div class="row mb-3">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <label for="vehicleType" class="form-label fw-semibold">Vehicle Type</label>
+                        <select class="form-select" id="vehicleType" required>
+                            <option value="" selected disabled>Select type...</option>
+                            <option value="Truck">Truck</option>
+                            <option value="Personal Car">Personal Car</option>
+                            <option value="Taxi">Taxi</option>
+                            <option value="Coaster">Coaster</option>
+                            <option value="Boda-boda">Boda-boda</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="numberPlate" class="form-label fw-semibold">Number Plate</label>
+                        <input type="text" class="form-control" id="numberPlate" placeholder="e.g. UAB 123C" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <label for="vehicleModel" class="form-label fw-semibold">Vehicle Model</label>
+                        <input type="text" class="form-control" id="vehicleModel" placeholder="e.g. Toyota Hilux" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="vehicleColor" class="form-label fw-semibold">Vehicle Color</label>
+                        <input type="text" class="form-control" id="vehicleColor" placeholder="e.g. White" required>
+                    </div>
+                </div>
+
+                <div class="mb-4" id="ninContainer" style="display: none;">
+                    <label for="ninNumber" class="form-label fw-semibold text-danger">NIN Number (Required for Boda-bodas)</label>
+                    <input type="text" class="form-control border-danger" id="ninNumber" placeholder="Enter valid NIN">
+                </div>
+
+                <h5 class="text-primary mb-3 border-bottom pb-2 mt-4">Arrival Information</h5>
+                <div class="row mb-4">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <label for="arrivalDate" class="form-label fw-semibold">Arrival Date</label>
+                        <input type="date" class="form-control" id="arrivalDate" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="arrivalTime" class="form-label fw-semibold">Arrival Time</label>
+                        <input type="time" class="form-control" id="arrivalTime" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold rounded-3 mt-3">
+                    <i class="bi bi-check-circle me-2"></i>Register Vehicle
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const vehicleTypeSelect = document.getElementById('vehicleType');
+        const ninContainer = document.getElementById('ninContainer');
+        const ninInput = document.getElementById('ninNumber');
+
+        // Auto-fill current date and time
+        const now = new Date();
+        document.getElementById('arrivalDate').value = now.toISOString().split('T')[0];
+        document.getElementById('arrivalTime').value = now.toTimeString().slice(0,5);
+
+        vehicleTypeSelect.addEventListener('change', function() {
+            if (this.value === 'Boda-boda') {
+                ninContainer.style.display = 'block';
+                ninInput.setAttribute('required', 'required');
+            } else {
+                ninContainer.style.display = 'none';
+                ninInput.removeAttribute('required');
+                ninInput.value = ''; // Clear the input if they switch away from Boda-boda
+            }
+        });
+    });
+</script>
+</body>
+</html>

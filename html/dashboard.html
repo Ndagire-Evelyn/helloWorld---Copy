@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkEase Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="dashboard-page">
+    <div class="nav-set">
+        <nav class="navbar">
+
+            <div class="logo">
+                ParkEase
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="register.html" class="register-link">Register Vehicle</a></li>
+
+                <li><a href="reports.html">Admin</a></li>
+                <li><a href="batterySection.html">Battery Section</a></li>
+                <li><a href="tyreClinic.html">Tyre Clinic</a></li>
+                <li><a href="dashboard.html" class="dashboard-link">Dashboard</a></li>
+                <li><a href="signOut.html">Check Out</a></li>
+
+            </ul>
+
+            <div class="nav-right">
+                <span class="user-role">Admin</span>
+                <a href="index.html" class="logout-btn">Logout</a>
+            </div>
+
+        </nav>
+        <div class="dashboard-top">
+            <div class="search-wrapper">
+                <input type="text" class="dashboard-search" placeholder="Search vehicle by number plate...">
+            </div>
+        </div>
+        <div class="dashboard-container">
+
+            <!-- STAT CARDS -->
+            <div class="stats">
+                <div class="card">
+                    <h3>Parked Vehicles</h3>
+                    <p>24</p>
+                </div>
+
+                <div class="card">
+                    <h3>Total Revenue</h3>
+                    <p>UGX 450,000</p>
+                </div>
+
+                <div class="card">
+                    <h3>Available Slots</h3>
+                    <p>16</p>
+                </div>
+
+                <div class="card">
+                    <h3>Active Attendants</h3>
+                    <p>3</p>
+                </div>
+            </div>
+
+            <!-- QUICK ACTIONS -->
+            <div></div>
+                <a href="register.html"><button>Register Vehicle</button></a>
+                <a href="signOut.html"><button>Vehicle Sign Out</button></a>
+            </div>
+
+            <!-- TABLE -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vehicle Type</th>
+                            <th>Number Plate</th>
+                            <th>Time In</th>
+                            <th>Status</th>
+                            <th>Services</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Car</td>
+                            <td>UBA 123A</td>
+                            <td>08:45 AM</td>
+                            <td class="status-active">Parked</td>
+                            <td>Car Wash</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <script src="javaScript/dashboard.js"></script>
+</body>
+
+</html>

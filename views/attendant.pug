@@ -1,0 +1,79 @@
+extends layout
+block content
+.main-content.w-100
+  // Top Bar
+  .topbar.d-flex.justify-content-between.align-items-center.p-3
+    input#searchInput.form-control.w-50(type='text' placeholder='Search plate number or vehicle type...')
+    div
+      span.me-3 Shift: 08:00 AM - 04:00 PM
+      |         &#x1F514;
+  // Stats
+  .container.mt-3
+    .row
+      .col-md-4
+        .card.p-3
+          h6 Total Vehicles Parked
+          h3#totalVehicles 0
+      .col-md-4
+        .card.p-3
+          h6 Today&apos;s Revenue
+          h3#revenue UGX 0
+      .col-md-4
+        .card.p-3
+          h6 Available Slots
+          h3#slots 0 / 200
+          .progress
+            #progressBar.progress-bar
+    // Quick Actions
+    .mt-4
+      h3.mb-3 Quick Actions
+      a(href='/registerVehicle')
+        button.btn.btn-primary(onclick='registerVehicle()')
+          | Register Arrival
+      a(href='/signout')
+      button.btn.btn-secondary(onclick='signOutVehicle()')
+        | Vehicle Sign-out
+      button.btn.btn-light Print Summary
+    // Table
+    .card.mt-4.p-3
+      h5 Recent Arrivals
+      table.table.mt-3
+        thead
+          tr
+                th Image
+                th Driver Name
+                th Phone Number
+                th Vehicle Type
+                th Number Plate
+                th Vehicle Model
+                th Vehicle Color
+                th Arrival Time
+                th Status
+                th Receipt Number
+                th Action
+        tbody#tableBody
+            if vehicles.length
+                each vehicle in vehicles
+                    tr
+                            td
+                                img(src = "/" + vehicle.vehicleImage alt = "Vehicle image" width = "150px" height = "170px")
+                            td #{vehicle.driverName}
+                            td #{vehicle.phoneNumber}
+                            td #{vehicle.vehicleType}
+                            td #{vehicle.numberPlate}
+                            td #{vehicle.vehicleModel}
+                            td #{vehicle.vehicleColor}
+                            td #{vehicle.arrivalDate}
+                            td #{vehicle.arrivalTime}
+                            td #{vehicle.status}
+                            td #{vehicle.receiptNumber}
+                            td
+                                button.btn.btn-sm.btn-outline-primary(onclick=`navigator.clipboard.writeText("${vehicle.receiptNumber}"); alert("Receipt ${vehicle.receiptNumber} copied");`)
+                                    i.fa-solid.fa-copy.me-1
+                                    | Copy
+            else
+                tr
+                    td No vehicle found
+          // Filled by JS
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js')
+    script(src='script.js')

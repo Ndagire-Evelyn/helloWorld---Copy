@@ -1,0 +1,11 @@
+Admin
+email: evelynndagire423@gmail.com
+password: admin123
+
+Manager
+email: evelynndagire26@gmail.com
+password: manager26
+
+Attendant 
+email: evelynndagire18@gmail.com
+password: park2026
