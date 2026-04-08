@@ -14,22 +14,22 @@ head
     form#signupForm(method='post' action='/auth/signup')
       .row.mb-3
         .col.form-floating
-          input#firstName.form-control(type='text' placeholder=' ' required='')
+          input#firstName.form-control(type='text' placeholder=' ' name='firstName' required='')
           label(for='firstName')
             i.fa.fa-user.me-2
             | First Name
         .col.form-floating
-          input#lastName.form-control(type='text' placeholder=' ' required='')
+          input#lastName.form-control(type='text' placeholder=' ' name='lastName' required='')
           label(for='lastName')
             i.fa.fa-user.me-2
             | Last Name
       .form-floating.mb-3
-        input#phone.form-control(type='tel' placeholder=' ' required='')
+        input#phone.form-control(type='tel' placeholder=' ' name='phoneNumber' required='')
         label(for='phone')
           i.fa.fa-phone.me-2
           | Phone Number
       .form-floating.mb-3
-        select#role.form-select(required='')
+        select#role.form-select(name='role' required='')
           option(value='' disabled='' selected='')
           option(value='admin') Admin
           option(value='manager') Manager
@@ -38,12 +38,12 @@ head
           i.fa.fa-users.me-2
           | Select Role
       .form-floating.mb-3
-        input#email.form-control(type='email' placeholder=' ' required='')
+        input#email.form-control(type='email' placeholder=' ' name='email' required='')
         label(for='email')
           i.fa.fa-envelope.me-2
           | Email
       .form-floating.mb-3
-        input#password.form-control(type='password' placeholder=' ' required='')
+        input#password.form-control(type='password' placeholder=' ' name='password' required='')
         label(for='password')
           i.fa.fa-lock.me-2
           | Password
